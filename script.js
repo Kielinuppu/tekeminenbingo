@@ -1,4 +1,4 @@
-const kuvat = Array.from({length: 25}, (_, i) => `${i + 1}.avif`);
+const kuvat = Array.from({length: 25}, (_, i) => `${i + 1}.png`);
 const aanet = Array.from({length: 25}, (_, i) => `${i + 1}.mp3`);
 let arvotut = [];
 
