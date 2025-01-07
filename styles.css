@@ -1,0 +1,292 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 108%;
+    padding-top: 0;
+}
+
+#game {
+    text-align: center;
+    width: 90%;
+    max-width: 864px;
+    background: white;
+    padding: 0 27px 27px;
+    border-radius: 13.5px;
+    box-shadow: 0 0 13.5px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 180%;
+    margin: 4.5px 0;
+    margin-top: 0px;
+}
+
+h2 {
+    font-size: 153%;
+    margin: 0;
+    margin-top: -5px;
+}
+
+/* Vaikeustasojen tyylit */
+#vaikeustasoContainer {
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+    margin: 18px 0;
+}
+
+.vaikeustasoNappi {
+    font-family: 'Quicksand', sans-serif;
+    width: 300px;
+    height: 300px;
+    background-color: transparent;
+    color: black;
+    border: 2.7px solid black;
+    border-radius: 7.2px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.vaikeustasoNappi:hover {
+    background-color: #f0f0f0;
+}
+
+.vaikeustasoNappi .taso {
+    font-size: 180%;
+    margin-bottom: 18px;
+}
+
+.vaikeustasoNappi .kuvat {
+    font-size: 108%;
+    color: #666;
+}
+
+/* Aloitusnapin tyylit */
+#aloitusNappiContainer, #kuvaContainer {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
+}
+
+#aloitusNappi {
+    font-family: 'Quicksand', sans-serif;
+    width: 432px;
+    height: 432px;
+    background-color: transparent;
+    color: black;
+    border: 2.7px solid black;
+    border-radius: 7.2px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 108%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pelialueen tyylit */
+#pelialue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    width: 100%;
+}
+
+#kuvaContainer {
+    position: relative;
+    width: 432px;
+    height: 432px;
+    margin: 0 auto;
+}
+
+#arvottuKuva {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4.5px solid #333;
+    border-radius: 9px;
+    transition: all 0.3s ease;
+}
+
+#arvottuKuva.active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    z-index: 1000;
+    animation: glowPulse 1s infinite;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: none;
+}
+
+#latausEfekti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 9px;
+    z-index: 10;
+}
+
+.spinner {
+    border: 4.5px solid #f3f3f3;
+    border-top: 4.5px solid #3498db;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#latausEfekti p {
+    margin-top: 9px;
+    font-size: 16.2px;
+}
+
+#seuraavaNappi {
+    margin-top: 18px;
+    padding: 13.5px 27px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: transparent;
+    color: black;
+    border: 2.7px solid black;
+    border-radius: 7.2px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 108%;
+    text-transform: uppercase;
+}
+
+#arvotutKuvat {
+    margin-top: 18px;
+}
+
+#arvotutKuvatContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10.8px;
+    margin-top: 9px;
+}
+
+.arvottuKuvake {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border: 1.8px solid #333;
+    border-radius: 4.5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Star burst animation */
+.star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    animation: starBurst 1s ease-out forwards;
+}
+
+@keyframes starBurst {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0) translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Mobiilityylit */
+@media (max-width: 600px) {
+    #vaikeustasoContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .vaikeustasoNappi {
+        width: 200px;
+        height: 200px;
+    }
+
+    #kuvaContainer, #arvottuKuva, #aloitusNappi {
+        width: 288px;
+        height: 288px;
+    }
+
+    #seuraavaNappi {
+        width: auto;
+        height: auto;
+        font-size: 90%;
+    }
+
+    .arvottuKuvake {
+        width: 43.2px;
+        height: 43.2px;
+    }
+}
